@@ -182,14 +182,14 @@ void DestroyBtree(pNode root) {
 int CountVowelsOnEvenLevels(pNode root) {
   int count = 0;
   int level = 0; // Корень дерева считается уровнем 0
-
+  setlocale(LC_ALL, "ru_RU.utf8");
   std::function<void(pNode)> traverse = [&](pNode node) {
     if (node == nullptr) return;
     
     if (level % 2 == 0) { // Проверяем, четный ли уровень
       wchar_t c = tolower(node->data); // Приводим к нижнему регистру для удобства
-      if (c == 'а' || c == 'е' || c == 'ё' || c == 'и' || c == 'о' || c == 'у' ||
-          c == 'ы' || c == 'э' || c == 'ю' || c == 'я') {
+      if (c == L'а' || c == L'е' || c == L'ё' || c == L'и' || c == L'о' || c == L'у' ||
+          c == L'ы' || c == L'э' || c == L'ю' || c == L'я') {
         count++;
       }
     }
